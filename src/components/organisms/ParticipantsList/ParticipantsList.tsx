@@ -5,26 +5,19 @@ import {
   ListItem,
   Radio,
   RadioGroup,
-  Typography,
+  Typography
 } from '@mui/material'
 import React from 'react'
 import {
-  Participant,
-  ParticipantId,
+  Participant
 } from '../../../services/betsApiService/types'
 import { BetType } from './betTypes'
 
 interface Props {
   participants: Participant[]
-  selectedFirstPlace?: ParticipantId
-  selectedSecondPlace?: ParticipantId
-  selectedThirdPlace?: ParticipantId
 }
 export const ParticipantsList = ({
-  participants,
-  selectedFirstPlace,
-  selectedSecondPlace,
-  selectedThirdPlace,
+  participants
 }: Props) => {
   return (
     <List>

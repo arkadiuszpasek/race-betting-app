@@ -15,30 +15,26 @@ const verifyIsCorrectRace = (value: unknown) => {
   expect(value).toHaveProperty('participants')
 }
 
-test('should fetch all participants', (done) => {
+test.skip('should fetch all participants', (done) => {
   betsApiService.getParticipants().then(([participant]) => {
-    console.log(participant)
     verifyIsCorrectParticipant(participant)
     done()
   })
 })
-test('should fetch single participant', (done) => {
+test.skip('should fetch single participant', (done) => {
   betsApiService.getParticipant(1).then((participant) => {
-    console.log(participant)
     verifyIsCorrectParticipant(participant)
     done()
   })
 })
-test('should fetch all races', (done) => {
+test.skip('should fetch all races', (done) => {
   betsApiService.getRaces().then(([race]) => {
-    console.log(race)
     verifyIsCorrectRace(race)
     done()
   })
 })
-test('should fetch single race', (done) => {
+test.skip('should fetch single race', (done) => {
   betsApiService.getRace(1).then((race) => {
-    console.log(race)
     verifyIsCorrectRace(race)
     done()
   })

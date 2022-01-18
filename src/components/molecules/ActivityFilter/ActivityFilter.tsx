@@ -3,7 +3,7 @@ import React from 'react'
 import { RaceFilter } from './raceFilters'
 
 interface Props {
-  onChange(values: RaceFilter): void
+  onChange(value: RaceFilter | undefined): void
   selected: RaceFilter | undefined
   values: RaceFilter[]
 }

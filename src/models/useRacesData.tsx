@@ -16,7 +16,7 @@ export const RacesDataProvider = ({
   const { betsService } = useServices()
 
   const { data, error } = useSWR('races', () => betsService.getRaces(), {
-    revalidateIfStale: true,
+    revalidateIfStale: false,
     revalidateOnFocus: false,
   })
 
