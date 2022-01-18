@@ -32,7 +32,7 @@ App built with node `v16.13.2` (current LTS)
 - Race screen is totally uncontrolled (inputs are not saved), they need to be stored in the app's state
 - user can place bet with multiple winners etc., he should be able to choose just one winner etc.
 - `Bet` button should be disabled until user chooses his bet for first, second and third place
-- rethink and re-do caching approach
+- rethink and re-do caching/persistance approach
 
 ### Notes
 
