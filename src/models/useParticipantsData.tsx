@@ -17,11 +17,10 @@ export const ParticipantsDataProvider = ({
 }: React.PropsWithChildren<{}>) => {
   const { betsService } = useServices()
 
-  // NOTE: '0' is a key for revalidation, could be anything since we don't paginate or anything like that
   const { data, error } = useSWR(
-    '0',
+    'participants',
     () => betsService.getParticipantsAsMap(),
-    { revalidateIfStale: false, revalidateOnFocus: false }
+    { revalidateIfStale: true, revalidateOnFocus: false }
   )
 
   return (

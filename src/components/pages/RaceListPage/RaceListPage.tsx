@@ -5,14 +5,21 @@ import {
   Stack,
   Typography
 } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { useRacesData } from '../../../models/useRacesData'
 import { Race } from '../../../services/betsApiService/types'
 import { RoutingService } from '../../../services/routingService/RoutingService'
+import { RacesFilter } from '../../molecules/ActivityFilter/ActivityFilter'
+import { RaceActiveFilter, RaceFilter, RaceFilters } from '../../molecules/ActivityFilter/raceFilters'
 import { RaceList } from '../../organisms/RaceList/RaceList'
 
 export const RaceListPage = () => {
   const { data, error } = useRacesData()
+  const [filter, setFilter] = useState<RaceFilter | undefined>(RaceActiveFilter);
+
+  const handleFilterChange = (value: RaceFilter | undefined) => {
+    setFilter(value);
+  }
 
   const renderError = () => {
     return <div>Error occurred {error?.message}</div>
@@ -23,11 +30,16 @@ export const RaceListPage = () => {
   }
 
   const renderRaces = (races: Race[]) => {
+    const filteredRaces = filter ? races.filter(race => filter.predicate(race)) : races;
+
     return (
-      <RaceList
-        races={races}
-        generateLink={(race) => RoutingService.createRaceDetailsUrl(race.id)}
-      />
+      <>
+        <RacesFilter selected={filter} values={RaceFilters} onChange={handleFilterChange} />
+        <RaceList
+          races={filteredRaces}
+          generateLink={(race) => RoutingService.createRaceDetailsUrl(race.id)}
+        />
+      </>
     )
   }
 
@@ -35,7 +47,7 @@ export const RaceListPage = () => {
     if (!data) {
       return renderLoading()
     }
-    if (data) {
+    if (data && !error) {
       return renderRaces(data)
     }
 
@@ -43,7 +55,7 @@ export const RaceListPage = () => {
   }
 
   return (
-    <Container sx={{ paddingY: 4 }}>
+    <Container maxWidth="md" sx={{ paddingY: 4 }}>
       <Stack spacing={2}>
         <Breadcrumbs>
           <Typography color="text.primary">Races</Typography>

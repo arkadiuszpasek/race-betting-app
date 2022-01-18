@@ -15,8 +15,7 @@ export const RacesDataProvider = ({
 }: React.PropsWithChildren<{}>) => {
   const { betsService } = useServices()
 
-  // NOTE: '0' is a key for revalidation, could be anything since we don't paginate or anything like that
-  const { data, error } = useSWR('0', () => betsService.getRaces(), {
+  const { data, error } = useSWR('races', () => betsService.getRaces(), {
     revalidateIfStale: true,
     revalidateOnFocus: false,
   })

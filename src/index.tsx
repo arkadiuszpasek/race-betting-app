@@ -7,6 +7,7 @@ import { RacesDataProvider } from './models/useRacesData'
 import { SWRConfig } from 'swr'
 import { HashRouter } from 'react-router-dom'
 import { AppRouting } from './AppRouting'
+import { ParticipantsDataProvider } from './models/useParticipantsData'
 
 const localStorageProvider = () => {
   // When initializing, we restore the data from `localStorage` into a map.
@@ -30,7 +31,9 @@ ReactDOM.render(
       <SWRConfig value={{ provider: localStorageProvider }}>
         <ServicesContext.Provider value={services}>
           <RacesDataProvider>
-            <AppRouting />
+            <ParticipantsDataProvider>
+              <AppRouting />
+            </ParticipantsDataProvider>
           </RacesDataProvider>
         </ServicesContext.Provider>
       </SWRConfig>
