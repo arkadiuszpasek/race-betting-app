@@ -20,7 +20,7 @@ export const ParticipantsDataProvider = ({
   const { data, error } = useSWR(
     'participants',
     () => betsService.getParticipantsAsMap(),
-    { revalidateIfStale: true, revalidateOnFocus: false }
+    { revalidateIfStale: false, revalidateOnFocus: false }
   )
 
   return (
