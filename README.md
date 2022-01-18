@@ -25,6 +25,8 @@ Running application:
 - `yarn install`
 - `yarn start`
 
+App built with node `v16.13.2` (current LTS)
+
 ### Roadmap
 
 - Race screen is totally uncontrolled (inputs are not saved), they need to be stored in the app's state
