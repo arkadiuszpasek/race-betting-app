@@ -3,22 +3,26 @@ import {
   Container,
   Divider,
   Stack,
-  Typography
+  Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
 import { useRacesData } from '../../../models/useRacesData'
 import { Race } from '../../../services/betsApiService/types'
 import { RoutingService } from '../../../services/routingService/RoutingService'
 import { RacesFilter } from '../../molecules/ActivityFilter/ActivityFilter'
-import { RaceActiveFilter, RaceFilter, RaceFilters } from '../../molecules/ActivityFilter/raceFilters'
+import {
+  RaceActiveFilter,
+  RaceFilter,
+  RaceFilters,
+} from '../../molecules/ActivityFilter/raceFilters'
 import { RaceList } from '../../organisms/RaceList/RaceList'
 
 export const RaceListPage = () => {
   const { data, error } = useRacesData()
-  const [filter, setFilter] = useState<RaceFilter | undefined>(RaceActiveFilter);
+  const [filter, setFilter] = useState<RaceFilter | undefined>(RaceActiveFilter)
 
   const handleFilterChange = (value: RaceFilter | undefined) => {
-    setFilter(value);
+    setFilter(value)
   }
 
   const renderError = () => {
@@ -30,11 +34,17 @@ export const RaceListPage = () => {
   }
 
   const renderRaces = (races: Race[]) => {
-    const filteredRaces = filter ? races.filter(race => filter.predicate(race)) : races;
+    const filteredRaces = filter
+      ? races.filter((race) => filter.predicate(race))
+      : races
 
     return (
       <>
-        <RacesFilter selected={filter} values={RaceFilters} onChange={handleFilterChange} />
+        <RacesFilter
+          selected={filter}
+          values={RaceFilters}
+          onChange={handleFilterChange}
+        />
         <RaceList
           races={filteredRaces}
           generateLink={(race) => RoutingService.createRaceDetailsUrl(race.id)}

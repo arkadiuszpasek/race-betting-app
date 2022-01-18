@@ -1,21 +1,21 @@
-import { Race } from "../../../services/betsApiService/types";
+import { Race } from '../../../services/betsApiService/types'
 
 export const enum RaceFilterType {
-  Active = "Active",
-  Inactive = "Inactive"
+  Active = 'Active',
+  Inactive = 'Inactive',
 }
 
 export interface RaceFilter {
-  type: RaceFilterType;
-  predicate: (race: Race) => boolean;
+  type: RaceFilterType
+  predicate: (race: Race) => boolean
 }
 
 export const RaceActiveFilter: RaceFilter = {
   type: RaceFilterType.Active,
-  predicate: (race: Race) => race.active
-};
+  predicate: (race: Race) => race.active,
+}
 export const RaceInactiveFilter: RaceFilter = {
   type: RaceFilterType.Inactive,
-  predicate: (race: Race) => !race.active
-};
-export const RaceFilters = [RaceInactiveFilter, RaceActiveFilter];
+  predicate: (race: Race) => !race.active,
+}
+export const RaceFilters = [RaceInactiveFilter, RaceActiveFilter]
