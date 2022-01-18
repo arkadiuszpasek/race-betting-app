@@ -44,3 +44,6 @@ Application uses `swr` (cahed in local-storage) for stale-while-revalidate appro
 - what it does: uses stale values when saved
 - what it should do: use stale values and display them to user, but revalidate to present new ones
 - why it does what it does and not what it should do: we use https://my-json-server.typicode.com/hdjfye/bet-api, no need to overload it with unecessary queries for demo app
+
+#### Hash router
+Used because does generate that many problems when hosting on github pages
