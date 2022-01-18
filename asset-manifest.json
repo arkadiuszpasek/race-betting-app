@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/race-betting-app/static/css/main.583ae774.css",
-    "main.js": "/race-betting-app/static/js/main.60dff5af.js",
+    "main.js": "/race-betting-app/static/js/main.040ea76c.js",
     "index.html": "/race-betting-app/index.html",
     "main.583ae774.css.map": "/race-betting-app/static/css/main.583ae774.css.map",
-    "main.60dff5af.js.map": "/race-betting-app/static/js/main.60dff5af.js.map"
+    "main.040ea76c.js.map": "/race-betting-app/static/js/main.040ea76c.js.map"
   },
   "entrypoints": [
     "static/css/main.583ae774.css",
-    "static/js/main.60dff5af.js"
+    "static/js/main.040ea76c.js"
   ]
 }
