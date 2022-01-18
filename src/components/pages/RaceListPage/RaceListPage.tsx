@@ -3,7 +3,7 @@ import {
   Container,
   Divider,
   Stack,
-  Typography
+  Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
 import { useRacesData } from '../../../models/useRacesData'
@@ -12,7 +12,7 @@ import { RacesFilter } from '../../molecules/ActivityFilter/ActivityFilter'
 import {
   RaceActiveFilter,
   RaceFilter,
-  RaceFilters
+  RaceFilters,
 } from '../../molecules/ActivityFilter/raceFilters'
 import { RaceList } from '../../organisms/RaceList/RaceList'
 
@@ -40,9 +40,7 @@ export const RaceListPage = () => {
           values={RaceFilters}
           onChange={setFilter}
         />
-        <RaceList
-          races={filteredRaces}
-        />
+        <RaceList races={filteredRaces} />
       </>
     )
   }

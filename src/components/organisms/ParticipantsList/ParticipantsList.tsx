@@ -5,20 +5,16 @@ import {
   ListItem,
   Radio,
   RadioGroup,
-  Typography
+  Typography,
 } from '@mui/material'
 import React from 'react'
-import {
-  Participant
-} from '../../../services/betsApiService/types'
+import { Participant } from '../../../services/betsApiService/types'
 import { BetType } from './betTypes'
 
 interface Props {
   participants: Participant[]
 }
-export const ParticipantsList = ({
-  participants
-}: Props) => {
+export const ParticipantsList = ({ participants }: Props) => {
   return (
     <List>
       {participants.map(({ id, body }) => (

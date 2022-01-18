@@ -11,25 +11,33 @@
 # Race betting app
 
 ## Usage
+
 ### Demo
+
 See demo hosted [there](https://arkadiuszpasek.github.io/race-betting-app)
 
 ### Local
+
 Running application:
- - Clone repo
- - cd `race-betting-app`
- - `yarn install`
- - `yarn start`
+
+- Clone repo
+- cd `race-betting-app`
+- `yarn install`
+- `yarn start`
 
 ### Roadmap
- - Race screen is totally uncontrolled (inputs are not saved), they need to be stored in the app's state
- - user can place bet with multiple winners etc., he should be able to choose just one winner etc.
- - `Bet` button should be disabled until user chooses his bet for first, second and third place
+
+- Race screen is totally uncontrolled (inputs are not saved), they need to be stored in the app's state
+- user can place bet with multiple winners etc., he should be able to choose just one winner etc.
+- `Bet` button should be disabled until user chooses his bet for first, second and third place
 
 ### Notes
+
 #### App state persistence
+
 Application uses react-router to navigate to different screens, therefore refreshing will navigate to same screen.  
 Application uses `swr` (cahed in local-storage) for stale-while-revalidate approach:
- - what it does: uses stale values when saved
- - what it should do: use stale values and display them to user, but revalidate to present new ones
- - why it does what it does and not what it should do: we use https://my-json-server.typicode.com/hdjfye/bet-api, no need to overload it with unecessary queries for demo app
+
+- what it does: uses stale values when saved
+- what it should do: use stale values and display them to user, but revalidate to present new ones
+- why it does what it does and not what it should do: we use https://my-json-server.typicode.com/hdjfye/bet-api, no need to overload it with unecessary queries for demo app
